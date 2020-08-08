@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<head th:replace="layouts :: header"></head>
+<body>
+	<nav th:replace="layouts :: nav"></nav>
+	<div class="container">
+		<h3>main dashboard</h3>
+		<a th:text="${versionNumber}"></a>
+		<div class="row">
+			<div class="col-md-6">
+				<h3>projects</h3>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>stage</th>
+							<th>count</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="project: ${projectCounts}">
+							<td th:text="${project.stage}" />
+							<td th:text="${project.count}" />
+						</tr>
+					</tbody>
+				</table>						
+			</div>
+			<div class="col-md-6">
+				<canvas id="myPieChart" height="50" width="50"></canvas>
+				<script>
+					var chartData = '[[${projectStatusCnt}]]';
+				</script>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6">
+				<h3>employees</h3>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>first Name</th>
+							<th>last Name</th>
+							<th>project count</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="employeeProject: ${employeeProjects}">
+							<td th:text="${employeeProject.firstName}" />
+							<td th:text="${employeeProject.lastName}" />
+							<td th:text="${employeeProject.projectCount}" />
+						</tr>
+					</tbody>
+				</table>
+			</div>	
+		</div>
+	</div>
+	
+	
+	
+	<script type="text/javascript" th:src="@{js/myChart.js}">
+		
+	</script>
+</body>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<head th:replace="layouts :: header"></head>
+	
+	<body>
+	<nav th:replace="layouts :: nav"></nav>
+	<div class="container">
+		
+		<h3>Create Project</h3>
+			<hr>
+			
+		<form action="/projects/save" th:object="${project}" method="POST">
+			
+			<div class="form-group row">
+				<input type="text" placeholder="Project Name" th:field="${project.name}" 
+						class="mb-4 col-2 col-xs-4">
+			</div>
+			
+			<div class="form-group row">
+				<select class="form-control mb-4 col-4 col-xs-4" th:field="${project.stage}">
+				    <option th:value="NOTSTARTED">Not Started</option>
+				    <option th:value="INPROGRESS">In Progress</option>
+				    <option th:value="COMPLETED">Completed</option>
+				</select>
+			</div>
+			
+			
+			<div class="form-group row">
+	          <!-- <select id="multiSelectElementsAvailable" 
+		                    name="multiSelectElementsAvailable"  -->
+		        <!--             
+		      <select  multiple="multiple" th:field="${project.employees}">
+		                <option th:each="employee : ${allEmployees}"
+		                        th:value="${employee.employeeId}"
+		                        th:text="${employee.firstName}"></option>
+		      </select> -->
+	      </div>
+	      
+	      	<div class="form-group row">
+				<textarea type="text" placeholder="Enter Project Description" th:field="${project.description}" 
+						class="mb-4 col-2 col-xs-4"></textarea>
+			</div>
+			<select th:field="${project.employees}" multiple="multiple">
+				<option th:each="employee : ${allEmployees}" 
+				th:value="${employee.employeeId}"
+				th:text = "${employee.firstName}"></option>
+			</select>
+			<button type="submit" class="btn btn-info col-2">Create Project</button>
+			
+		</form>
+	</div>
+
+</body>
+	    <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+	    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+		<script src="https://cdn.rawgit.com/crlcu/multiselect/v2.5.1/dist/js/multiselect.min.js"></script>
+		
+</html>

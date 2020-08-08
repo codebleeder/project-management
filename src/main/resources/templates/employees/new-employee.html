@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<head th:replace="layouts :: header"></head>
+	
+	<body>
+	<nav th:replace="layouts :: nav"></nav>
+	<div class="container">			
+		<form action="/employees/save" th:object="${employee}" method="POST">						
+			<input type="text" placeholder="First Name" th:field="${employee.firstName}" 
+						class="mb-4 col-2 col-xs-4">
+			<input type="text" placeholder="Last Name" th:field="${employee.lastName}" 
+						class="mb-4 col-2 col-xs-4">
+			<input type="text" placeholder="email" th:field="${employee.email}" 
+						class="mb-4 col-2 col-xs-4">														
+			<button type="submit" class="btn btn-info col-2">Create employee</button>
+			
+		</form>
+	</div>
+
+</body>
+	    <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+	    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+		<script src="https://cdn.rawgit.com/crlcu/multiselect/v2.5.1/dist/js/multiselect.min.js"></script>
+		
+</html>
