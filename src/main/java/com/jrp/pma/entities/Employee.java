@@ -11,11 +11,15 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="employee")
 public class Employee {
 	@Id 
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="employee_seq")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "employee_seq")
+	@SequenceGenerator(name = "employee_seq", sequenceName = "employee_seq", allocationSize = 1)
 	private long employeeId;
 	private String firstName;
 	private String lastName;
