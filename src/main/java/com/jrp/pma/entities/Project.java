@@ -16,6 +16,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="project")
 public class Project {
@@ -41,7 +43,7 @@ public class Project {
 		this.stage = stage;
 		this.description = description;
 	}
-	
+	@JsonIgnore
 	public List<Employee> getEmployees() {
 		return employees;
 	}
