@@ -1,5 +1,7 @@
 package com.jrp.pma.api.controllers;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
@@ -35,20 +37,19 @@ public class EmployeeApiController {
 	
 	@PostMapping(consumes = "application/json", produces = "application/json")
 	@ResponseStatus(code = HttpStatus.CREATED)
-	public Employee create(@RequestBody Employee employee) {
+	public Employee create(@RequestBody @Valid Employee employee) {
 		return employeeRepo.save(employee);
 	}
 	
 	@PutMapping(consumes = "application/json", path="/{id}")
 	@ResponseStatus(code = HttpStatus.OK)	
-	public Employee update(@RequestBody Employee employee){
-		Long id = employee.getEmployeeId();
+	public Employee update(@RequestBody @Valid Employee employee){	
 		return employeeRepo.save(employee);
 	}
 	
 	@PatchMapping(consumes = "application/json", path="/{id}")
 	@ResponseStatus(code = HttpStatus.OK)	
-	public Employee updatePartial(@RequestBody Employee patchEmp, @PathVariable("id") long id){
+	public Employee updatePartial(@RequestBody @Valid Employee patchEmp, @PathVariable("id") long id){
 		Employee emp = employeeRepo.findById(id).get();
 		if(patchEmp.getEmail() != null) {
 			emp.setEmail(patchEmp.getEmail());
@@ -72,4 +73,10 @@ public class EmployeeApiController {
 			e.printStackTrace();
 		}
 	}
+/*
+	@GetMapping("/{id}")
+	public Employee getEmployeeById(@PathVariable("id") Long id) {
+		return employeeRepo.findById(id).get();
+	}
+	*/
 }
