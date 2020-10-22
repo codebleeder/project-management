@@ -13,7 +13,7 @@ import com.jrp.pma.entities.Project;
 import com.jrp.pma.dao.IEmployeeRepository;
 import com.jrp.pma.dao.IProjectRepository;
 
-@SpringBootApplication(scanBasePackages = {"com.jrp.pma", "com.jrp.utils"})
+@SpringBootApplication(scanBasePackages = {"com.jrp.pma", "com.jrp.utils", "com.jrp.pma.api.controllers"})
 public class ProjectManagementApplication {
 
 	@Autowired
