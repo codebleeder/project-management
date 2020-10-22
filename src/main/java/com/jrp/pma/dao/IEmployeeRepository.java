@@ -18,4 +18,8 @@ public interface IEmployeeRepository extends CrudRepository<Employee, Long> {
 			"left join project_employee pe on pe.employee_id = e.employee_id " + 
 			"group by e.first_name, e.last_name order by 3 desc")
 	public List<EmployeeProject> employeeProjects();
+		
+	public Employee findByEmail(String value);
+	
+	public Employee findByEmployeeId(long id);
 }

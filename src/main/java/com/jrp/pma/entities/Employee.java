@@ -18,6 +18,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.jrp.pma.validation.UniqueValue;
 
 @Entity
 @Table(name="employee")
@@ -36,7 +37,9 @@ public class Employee {
 	
 	@NotNull
 	@Email
+	@UniqueValue
 	private String email;
+	
 	@ManyToMany(cascade= {CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.PERSIST},
 			fetch = FetchType.LAZY)
 	@JoinTable(name="project_employee", 
