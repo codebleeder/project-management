@@ -3,13 +3,12 @@ package com.jrp.pma.dao;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.repository.PagingAndSortingRepository;
 
 import com.jrp.pma.dto.EmployeeProject;
 import com.jrp.pma.entities.Employee;
 
-public interface IEmployeeRepository extends CrudRepository<Employee, Long> {
+public interface IEmployeeRepository extends PagingAndSortingRepository<Employee, Long> {
 	/*@Override
 	public List<Employee> findAll();
 	*/
