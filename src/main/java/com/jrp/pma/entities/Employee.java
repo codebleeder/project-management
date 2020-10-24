@@ -67,6 +67,9 @@ public class Employee {
 	public long getEmployeeId() {
 		return employeeId;
 	}
+	public void setEmployeeId(long id) {
+		this.employeeId = id;
+	}
 	public String getFirstName() {
 		return firstName;
 	}

@@ -8,6 +8,9 @@
 	<nav th:replace="layouts :: nav"></nav>
 	<div class="container">			
 		<form th:action="@{/employees/save}" th:object="${employee}" method="POST">						
+			<!-- this will be used to bind the clicked employee: -->
+			<!-- used for updates: -->
+			<input type="hidden" th:field="${employee.employeeId}" />
 			<input type="text" placeholder="First Name" th:field="${employee.firstName}" 
 						class="mb-4 col-2 col-xs-4">
 			<input type="text" placeholder="Last Name" th:field="${employee.lastName}" 

@@ -3,8 +3,10 @@ package com.jrp.pma.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.jrp.pma.dao.IEmployeeRepository;
 import com.jrp.pma.entities.Employee;
@@ -34,7 +36,20 @@ public class EmployeeController {
 	@PostMapping("/save")
 	public String createEmployee(Model model, Employee employee) {
 		//employeeRepo.save(employee);
+		System.out.println("employee id: " + employee.getEmployeeId());
 		employeeService.save(employee);
 		return "redirect:/employees/new";
+	}
+	@GetMapping("/update")
+	public String displayUpdateEmployee(@RequestParam("id") long id, Model model) {
+		Employee emp = employeeService.findByEmployeeId(id);
+		model.addAttribute("employee", emp);
+		return "employees/new-employee";
+	}
+	@GetMapping("/delete")
+	public String deleteEmployee(@RequestParam("id") long id, Model model) {
+		Employee emp = employeeService.findByEmployeeId(id);
+		employeeService.delete(emp);
+		return "redirect:/employees";
 	}
 }
