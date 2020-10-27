@@ -42,14 +42,17 @@
 				<textarea type="text" placeholder="Enter Project Description" th:field="${project.description}" 
 						class="mb-4 col-2 col-xs-4"></textarea>
 			</div>
-			<select th:field="${project.employees}" multiple="multiple">
-				<option th:each="employee : ${allEmployees}" 
-				th:value="${employee.employeeId}"
-				th:text = "${employee.firstName}"></option>
-			</select>
+			<div class="form-group row">
+				<select th:field="${project.employees}" multiple="multiple">
+					<option th:each="employee : ${allEmployees}" 
+					th:value="${employee.employeeId}"
+					th:text = "${employee.firstName}"></option>
+				</select>
+			</div>
 			
-			<button type="submit" class="btn btn-info col-2">Create Project</button>
-			
+			<div class="form-group row">
+				<button type="submit" class="btn btn-info col-2">Enter Project</button>
+			</div>
 		</form>
 	</div>
 
