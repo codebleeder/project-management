@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.jrp.pma.dao.IProjectRepository;
 import com.jrp.pma.dto.IProjectCount;
+import com.jrp.pma.dto.TimeChartData;
 import com.jrp.pma.entities.Project;
 
 @Service
@@ -24,5 +25,9 @@ public class ProjectService {
 	
 	public List<IProjectCount> getProjectStatus(){
 		return projectRepo.projectCounts();
+	}
+	
+	public List<TimeChartData> getTimeData(){
+		return projectRepo.getTimeData();
 	}
 }
