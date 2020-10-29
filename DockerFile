@@ -1,0 +1,14 @@
+FROM ubuntu-jdk
+
+MAINTAINER Sharad "sharad.shivmath@gmail.com"
+
+ENV version=aws-db-usage
+ENV dbuser=postgres
+ENV dbpass=password123
+ENV jdbcurl=jdbc:postgresql://pma-aws2.cixik5iv44m7.us-east-2.rds.amazonaws.com:5432/postgres
+# jdbc:driver://hostname:port/dbname
+WORKDIR /usr/local/bin
+
+ADD pma-app.jar .
+
+ENTRYPOINT ["java", "-jar", "pma-app.jar"]
