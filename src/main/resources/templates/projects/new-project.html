@@ -8,11 +8,11 @@
 	<nav th:replace="layouts :: nav"></nav>
 	<div class="container">
 		
-		<h3>Create Project</h3>
+		<h3>Create/Edit Project</h3>
 			<hr>
 			
 		<form th:action="@{/projects/save}" th:object="${project}" method="POST">
-			
+			<input type="hidden" th:field="${project.projectId}" />
 			<div class="form-group row">
 				<input type="text" placeholder="Project Name" th:field="${project.name}" 
 						class="mb-4 col-2 col-xs-4">

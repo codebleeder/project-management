@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.jrp.pma.dto.IProjectCount;
 import com.jrp.pma.dto.TimeChartData;
+import com.jrp.pma.entities.Employee;
 import com.jrp.pma.entities.Project;
 
 public interface IProjectRepository extends CrudRepository<Project, Long>{
@@ -21,4 +22,6 @@ public interface IProjectRepository extends CrudRepository<Project, Long>{
 	@Query(nativeQuery=true, value="select name as projectName, start_date as startDate, end_date as endDate"
 			+ " from project where start_date is not null")
 	public List<TimeChartData> getTimeData();
+	
+	public Project findByProjectId(long id);
 }

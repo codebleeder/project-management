@@ -7,6 +7,8 @@
 <body>
 	<nav th:replace="layouts :: nav"></nav>
 	<div class="container">
+	<h3>Create/Edit Employee</h3>
+			<hr>
 		<form th:action="@{/employees/save}" th:object="${employee}"
 			method="POST">
 			<!-- this will be used to bind the clicked employee: -->
@@ -32,7 +34,7 @@
 					th:errors="${employee.email}" class="text-danger"></span>
 			</div>
 			<div class="form-group row">
-				<button type="submit" class="btn btn-info col-2">Create
+				<button type="submit" class="btn btn-info col-2">Create/Update
 					employee</button>
 			</div>
 		</form>
