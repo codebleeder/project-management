@@ -29,6 +29,9 @@ A CRUD application written in Spring boot framework.
 ![Employee list](screenshots/employee_list.png)
 ![Project list](screenshots/project_list.png)
 
+### Project Timelines
+![Project timelines](screenshots/project_timelines.png)
+
 ## Libraries, frameworks, tools and platforms used
 * Backend: Spring-boot, Spring data JPA
 * Frontend: Thymeleaf, Bootstrap, JQuery, chart.js, Google charts
